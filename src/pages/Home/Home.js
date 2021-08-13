@@ -11,6 +11,7 @@ function Home() {
     const [forCategory, setForCategory] = useState({});
     const [unit, setUnit] = useState('imperial');
     const [day, setDay] = useState('0');
+    const [itIsUnit, setItIsUnit] = useState(null);
 
     return (
         <div>
@@ -20,7 +21,7 @@ function Home() {
                 <br/>
                 <br/>
 
-                <Weather setForCategory={setForCategory} unit={unit} day={day} />
+                <Weather setForCategory={setForCategory} unit={unit} day={day} itIsUnit={itIsUnit} />
 
                 <br/>
                 <br/>
@@ -40,7 +41,7 @@ function Home() {
                 <br/>
                 <br/>
 
-                <Menu setUnit={setUnit} setDay={setDay} />
+                <Menu setUnit={setUnit} setDay={setDay} setItIsUnit={setItIsUnit} />
             </div>
             }
         </div>

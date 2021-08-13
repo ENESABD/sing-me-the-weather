@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function Menu( { setUnit, setDay }) {
+function Menu( { setUnit, setDay, setItIsUnit }) {
     
     const [currentDay, setCurrentDay] = useState(null);
 
@@ -40,10 +40,12 @@ function Menu( { setUnit, setDay }) {
     }
 
     const onChangeDay = (e) => {
+        setItIsUnit(false);
         setDay(e.target.value);
     }
 
     const onChangeUnit = (e) =>{
+        setItIsUnit(true);
         setUnit(e.target.value);
     }
 
