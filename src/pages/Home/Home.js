@@ -13,6 +13,7 @@ function Home() {
     const [day, setDay] = useState('0');
     const [itIsUnit, setItIsUnit] = useState(null);
 
+
     return (
         <div>
             {!(hasWelcomed) ? <Welcome setWelcomed={setWelcomed} /> :

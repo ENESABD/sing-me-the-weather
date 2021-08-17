@@ -6,9 +6,8 @@ function Song({ forCategory }) {
     const [song, setSong] = useState({});
 
    
-    const { main, sunset, sunrise, today } = forCategory;
+    const { main, dayOrNight } = forCategory;
 
-    console.log(main, sunset, sunrise, today );
 
 
     
@@ -18,17 +17,7 @@ function Song({ forCategory }) {
 
     useEffect(() => {
 
-        const isNight = () => {
-            let newDate = new Date();
-            let time = newDate.getTime();
-            time = Math.floor(time / 1000);
-
-            if (time > sunset || time < sunrise) {
-                return true;
-            } else {
-                return false
-            }
-        }
+        
 
         const getCategory = () => {
             if (main) {
@@ -36,10 +25,8 @@ function Song({ forCategory }) {
                     case "Clouds":
                         return "cloudy";
                     case "Clear":
-                        if (today) {
-                            if (isNight()) {
-                                return "night";
-                            }
+                        if (dayOrNight === 'n') {
+                            return "night";
                         }
                         return "sunny";
                     case "Snow":
@@ -79,7 +66,7 @@ function Song({ forCategory }) {
         }
         
 
-      }, [forCategory, main, sunrise, sunset, today])
+      }, [forCategory, main, dayOrNight])
 
         
 
@@ -96,6 +83,7 @@ function Song({ forCategory }) {
                 allow="autoplay;" 
                 >
                 </iframe>
+
             </div>
 
             : <p>Song is loading...</p>}
