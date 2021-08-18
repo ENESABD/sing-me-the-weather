@@ -6,7 +6,7 @@ import ParsedDate from './ParsedDate';
 import NextHours from './NextHours';
 import OtherWeatherInfo from './OtherWeatherInfo';
 
-function Weather({ setForCategory, unit, day, itIsUnit }) {
+function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
 
 
     const [weatherInfoForTheDay, setWeatherInfoForTheDay] = useState({});
@@ -61,7 +61,7 @@ function Weather({ setForCategory, unit, day, itIsUnit }) {
             <NextHours hoursWeather={hoursWeather} /> :
             <OtherWeatherInfo weatherInfoForTheDay={weatherInfoForTheDay} />}
             <ParsedDate weatherInfoForTheDay={weatherInfoForTheDay} />
-            <Place lat={lat} lon={lon} />
+            <Place lat={lat} lon={lon} setPlaceId={setPlaceId}/>
         </div>
     )
 }
