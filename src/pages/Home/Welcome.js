@@ -9,10 +9,13 @@ function Welcome({ setWelcomed }) {
 
 
     return (
-        <div>
-            <h1>Welcome! Here you can see the weather forecast and listen to a song</h1>
-            <button onClick={onClickWelcome}>Sing me the weather!</button> 
-        </div>
+        <main className="welcome">
+            <div className="welcome-contents">
+                <p className="greeting-text">Welcome! Here you can see the weather forecast and listen to a song</p>
+                <button className="start-button" onClick={onClickWelcome}>Sing me the weather!</button> 
+            </div>
+           
+        </main>
     )
 }
 

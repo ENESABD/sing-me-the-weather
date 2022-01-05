@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function ParsedDate({ weatherInfoForTheDay }) {
 
     const [fullDate, setFullDate] = useState('');
+    const [forDateTime, setDateTime] = useState('');
 
 
 
@@ -42,19 +43,19 @@ function ParsedDate({ weatherInfoForTheDay }) {
         if (weatherInfoForTheDay.dt) {
             let newDate = new Date(weatherInfoForTheDay.dt * 1000);
             let day = newDate.getDate();
-            let month = newDate.getMonth();
-            month = numToMonth(month);
             let year = newDate.getFullYear();
-            console.log(month, day);
+            let month = newDate.getMonth();
+            setDateTime(year + '-' + (month+1) + '-' + day);
+            month = numToMonth(month);
             setFullDate(month + ' ' + day + ', ' + year);
         } 
         
     }, [weatherInfoForTheDay])
 
     return (
-        <div>
+        <time dateTime={forDateTime} className="chosen-date">
             {fullDate}
-        </div>
+        </time>
     )
 }
 

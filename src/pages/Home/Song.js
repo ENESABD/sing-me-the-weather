@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { songs } from '../../songList';
 
 function Song({ forCategory }) {
@@ -71,23 +71,34 @@ function Song({ forCategory }) {
         
 
     return (
-        <div>
+        <section className="song-section">
             {song ? 
 
-            <div>              
-                <h1>{song.title} by {song.by}</h1>
-                <iframe 
-                // width="500" height="300" 
-                src={`https://www.youtube.com/embed/${song.videoID}?rel=0&autoplay=1&controls=0&disablekb=1&loop=1&playlist=${song.videoID}`}
-                title="YouTube video player" frameBorder="0" 
-                allow="autoplay;" 
-                >
+                        
+            <figure className="song">
+                <figcaption className="song-caption">
+                    <div className="song-caption-line-1">Playing <span className="song-title">{song.title}</span></div>
+                    <div className="song-caption-line-2">by <span className="song-singer">{song.by}</span></div>
+                </figcaption>
+                <iframe className="song-iframe"
+                    width="400" height="250"
+                    src={
+            `https://www.youtube.com/embed/${song.videoID}?rel=0&autoplay=1&controls=0&disablekb=1&loop=1&playlist=${song.videoID}`
+                    }
+                    title="Weather Song" frameBorder="0" 
+                    allow="autoplay;" 
+                    >
                 </iframe>
+            </figure>            
 
-            </div>
-
-            : <p>Song is loading...</p>}
-        </div>
+            :
+            <Fragment>
+                <label htmlFor="song-loading">Song is loading...</label>
+                <progress id="song-loading" className="song-loading"></progress>
+            </Fragment>
+            
+             }
+        </section>
     )
 }
 

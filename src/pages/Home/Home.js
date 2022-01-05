@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Welcome from './Welcome';
 import Weather from './Weather';
 import Song from './Song';
 import Menu from './Menu';
-import BackgroundImage from './BackgroundImage';
 
-function Home({ setPhotoUrl }) {
+function Home({ setPlaceId }) {
 
 
     
@@ -17,43 +16,26 @@ function Home({ setPhotoUrl }) {
     const [day, setDay] = useState('0');
     const [itIsUnit, setItIsUnit] = useState(null);
 
-    const [placeId, setPlaceId] = useState('');
+    
 
 
     return (
-        <div>
+        <Fragment>
             {!(hasWelcomed) ? <Welcome setWelcomed={setWelcomed} /> :
-            
-            <div>
-                <br/>
-                <br/>
+        
+            <main className="home">
 
+                
                 <Weather setForCategory={setForCategory} unit={unit} day={day} itIsUnit={itIsUnit} setPlaceId={setPlaceId} />
 
-                <br/>
-                <br/>
-                <hr/>
-                <hr/>
-                <hr/>
-                <br/>
-                <br/>
-
                 <Song forCategory={forCategory} />
-
-                <br/>
-                <br/>
-                <hr/>
-                <hr/>
-                <hr/>
-                <br/>
-                <br/>
-
                 <Menu setUnit={setUnit} setDay={setDay} setItIsUnit={setItIsUnit} />
 
-                <BackgroundImage setPhotoUrl={setPhotoUrl} placeId={placeId} />
-            </div>
+                
+
+            </main>
             }
-        </div>
+        </Fragment>
     )
 }
 

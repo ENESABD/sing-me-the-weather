@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Geocode from "react-geocode";
 
@@ -14,7 +13,7 @@ function Place({ lat, lon, setPlaceId }) {
 
         const myGoogleApiKey = "AIzaSyCAQoJ1jsE-tYAC-sZ4_O_xwaLBC4JQy94";
 
-        if (lat, lon) {
+        if (lat && lon) {
             Geocode.setApiKey(myGoogleApiKey);
             Geocode.setLocationType("ROOFTOP");
             Geocode.enableDebug();
@@ -25,9 +24,9 @@ function Place({ lat, lon, setPlaceId }) {
                         console.log(address1);
                         console.log(res.results[0]);
 
-                       
-                        
 
+                        console.log('geocode call made');
+                
                     
                         for (let i = 0; i < res.results[0].address_components.length; i++) {
                             for (let j = 0; j < res.results[0].address_components[i].types.length; j++) {
@@ -41,7 +40,10 @@ function Place({ lat, lon, setPlaceId }) {
                                 case "country":
                                     setCountry(res.results[0].address_components[i].long_name);
                                     break;
+                                default:
+                                    console.log('there is a problem with geocoding');
                                 }
+                                
                             }
                         }
                     },
@@ -61,6 +63,7 @@ function Place({ lat, lon, setPlaceId }) {
                 Geocode.fromAddress(city + ', ' + countryState)
                     .then(
                         res => {
+                            console.log('geocode call made');
                             setPlaceId(res.results[0].place_id);
                         },
                         err => {
@@ -84,10 +87,10 @@ function Place({ lat, lon, setPlaceId }) {
     }, [city, countryState, country, setPlaceId])
     
     return (
-        <div>
-            <div>{city},</div>
-            <div>{countryState === '' ? country : countryState}</div>
-        </div>
+        <>
+            <h2 className="city">{city},</h2>
+            <h1 className="country-or-state">{countryState === '' ? country : countryState}</h1>
+        </>
     )
 }
 

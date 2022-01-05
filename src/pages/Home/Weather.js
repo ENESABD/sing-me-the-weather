@@ -20,13 +20,13 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
 
     const [hoursWeather, setHoursWeather] = useState({});
 
-
+    const [unitSign, setUnitSign] = useState('');
 
     const myApiKey = 'df06240ee5aea040d1e13720eac10a90';
 
 
     useEffect(() => {
-        const getAllWeatherInfo = async () => {            
+        const getAllWeatherInfo = async () => {                     
             await navigator.geolocation.getCurrentPosition(async (position) => {
                 let lat1 = position.coords.latitude;
                 let lon1 = position.coords.longitude;
@@ -46,6 +46,14 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
             })            
         }
         getAllWeatherInfo();
+        
+        if (unit === "standard") {
+            setUnitSign(' K');
+        } else if (unit === "metric") {
+            setUnitSign('°C');
+        } else if (unit === "imperial") {
+            setUnitSign('°F');
+        }
 
     },[unit])
 
@@ -54,15 +62,19 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
     
 
     return (
-        <div>          
+        <section className="weather-section">
             <MainWeather allWeatherInfo={allWeatherInfo} day={day} setForCategory={setForCategory} itIsUnit={itIsUnit} 
-                weatherInfoForTheDay={weatherInfoForTheDay} setWeatherInfoForTheDay={setWeatherInfoForTheDay} />
+                weatherInfoForTheDay={weatherInfoForTheDay} setWeatherInfoForTheDay={setWeatherInfoForTheDay} 
+                unitSign={unitSign} />
             {day === '0' ? 
-            <NextHours hoursWeather={hoursWeather} /> :
-            <OtherWeatherInfo weatherInfoForTheDay={weatherInfoForTheDay} />}
-            <ParsedDate weatherInfoForTheDay={weatherInfoForTheDay} />
-            <Place lat={lat} lon={lon} setPlaceId={setPlaceId}/>
-        </div>
+            <NextHours hoursWeather={hoursWeather} unitSign={unitSign} /> :
+            <OtherWeatherInfo weatherInfoForTheDay={weatherInfoForTheDay} unitSign={unitSign} />}
+
+            <header className="user-location-and-chosen-date">
+                <ParsedDate weatherInfoForTheDay={weatherInfoForTheDay} />
+                <Place lat={lat} lon={lon} setPlaceId={setPlaceId}/>
+            </header>          
+        </section>
     )
 }
 

@@ -1,4 +1,633 @@
-body, html {
-    height: 100%;
-    margin: 0;
+
+* {
+    margin: 0%;
+    padding: 0%;
 }
+
+html { 
+    font-size:100%; 
+}
+
+/* apply everywhere */
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0%;
+    padding: 0%;
+    list-style-type: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+
+
+
+
+/* ////////////////////// */
+
+.app {
+    min-height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(24, 49, 73);
+}
+
+
+
+
+
+
+
+/* ************************* */
+
+
+.header {
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 18px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 365px) {
+    .header {
+        position: relative;
+        justify-content: center;
+    }
+  }
+
+
+.header a:visited {
+    color: #E7E8CE;
+}
+
+.header a:hover {
+    color: #d9dd5e;
+}
+
+.header a:active {
+    color: #878b00;
+}
+
+
+
+
+
+
+
+
+.logo {
+    background: #007AAE;
+    border-radius: 25px; 
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #E7E8CE;
+
+    margin: 5px;
+    padding: 7px;
+
+}
+
+
+
+
+
+
+.navbar-list {
+    width:100%;
+    height:100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-item {
+    background: #007AAE;
+    border-radius: 25px;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #E7E8CE;
+
+    margin: 5px;
+    padding: 7px;
+}
+
+
+
+/* ************************* */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.welcome, .about {
+    height: 82vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-contents, .about-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(185, 131, 29);
+    border-radius: 5px;
+    padding: 20px;
+
+    
+}
+
+.about-text {
+    text-align: center;
+    color: rgb(24, 49, 73);
+    font-family: 'Comfortaa';
+    margin: 5px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.greeting-text {
+    text-align: center;
+    color: rgb(24, 49, 73);
+    font-family: 'Comfortaa';
+    margin: 5px;
+    font-size: 25px;
+}
+
+.start-button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: rgb(25, 104, 179);
+    color: rgb(185, 131, 29);
+    font-family: 'Comfortaa';
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+
+.start-button:hover {
+    background-color: rgb(24, 49, 73);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.home {
+    height: 83vh;
+
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+.weather-section {
+
+    
+    height: 100%;
+    width: 550px;
+
+
+    background:
+     linear-gradient(to bottom right,#4CA3B6 50%,  transparent 50%) bottom right,
+     linear-gradient(to bottom left, #4CA3B6 50%, transparent 50%) bottom left,
+     linear-gradient(to top left,    #4CA3B6 50%, transparent 50%) top left,
+     linear-gradient(to top right,   #4CA3B6 50%, transparent 50%) top right;
+
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+
+    font-family: 'Comfortaa';
+    color: #FFF;
+    font-size: 18px;
+    font-weight: normal;
+    word-wrap: break-word;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-weather-info, .user-location-and-chosen-date {
+    width: 40%;
+}
+
+
+@media screen and (max-width: 800px) {
+    .home {
+        height: auto;
+    }
+    .weather-section {
+        height: 85vh;
+        margin: auto;
+    }
+}
+
+
+
+
+.user-location-and-chosen-date {
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.city {
+    font-size: 21px;
+}
+
+.country-or-state {
+    font-size: 24px;
+}
+
+.chosen-date {
+    margin: 10px;
+}
+
+
+
+.main-weather-info {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-temperature {
+    width: 100%;
+    text-align: center;
+
+    font-size: 48px;
+}
+
+.main-weather-description {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.hourly-info-table .hourly-info-table-row + .hourly-info-table-row,
+.other-info-table .other-info-table-row + .other-info-table-row {
+    border-top: 5px ridge rgb(221, 221, 221);
+}
+
+.weather-hour, .other-info-type {
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 15px;
+    border-right: 5px ridge rgb(221, 221, 221);
+}
+
+.other-info-temp {
+    padding: 5px;
+}
+
+
+@media screen and (max-width: 690px) {
+    
+    .weather-section {
+        width: 100%;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .main-temperature {
+        font-size: 2rem;
+    }
+
+    .city, .country-or-state {
+        font-size: 1rem;
+    }
+
+    .weather-hour, .other-info-type {
+        padding: 5px;
+    }
+    
+    .weather-section img {
+        height: 30px;
+    }
+
+    
+}
+
+@media screen and (max-height: 690px) {
+    
+    .app {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.song {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(180deg, 
+        rgba(133, 3, 3, 0.8) 14.27%, 
+        rgba(33, 168, 11, 0.445833) 62.31%, 
+        rgba(31, 170, 18, 0.398307) 75.32%, 
+        rgba(11, 191, 72, 0) 93.29%);
+    border-radius: 10px;
+}
+
+.song-caption {
+    margin: 5px;
+
+    text-align: center;
+    font-family: "Open Sans";
+    font-style: italic;
+    font-size: 20px;
+    font-weight: normal;
+    color: #A17A7A;
+}
+
+.song-title {
+    font-family: "Special Elite";
+    font-style: normal;
+    font-size: 25px;
+    color: #C9C9C9;
+}
+
+.song-singer {
+    font-family: "Finger Paint";
+    font-style: normal;
+    font-size: 22px;
+    color: #C9C9C9;
+}
+
+.song-iframe {
+    margin: 20px;
+    margin-bottom: 50px;
+    
+    border: 7px solid rgba(39, 53, 10, 0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu-section {
+    display: flex;
+    flex-direction: row;
+
+    background: #375646;
+    border: 4px solid rgba(88, 29, 29, 0.69);
+    box-sizing: border-box;
+
+    font-family: "Electrolize";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+}
+
+.menu-section label {
+    width: 100%;
+    cursor: pointer;
+    background-color: #717171;
+}
+
+.menu-section input[type="radio"]:checked + label {
+    background-color:#C4C4C4;
+}
+
+.menu-section input[type="radio"]:focus + label {
+    border: 2px dashed #444;
+}
+
+
+.menu-section input {
+    width: 0;
+}
+
+.menu-section h1 {
+    font-family: "Poppins";
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.unit-menu {
+
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+
+    align-items: center;
+    justify-content: center;
+
+    border-right: 5px solid #E4E4E4;
+}
+
+.day-menu {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.unit-menu-list {
+   
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.day-menu-list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.day-menu-items-1 {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    padding-right: 30px;
+}
+
+.day-menu-items-2 {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
+
+.unit-menu-item, .day-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unit-menu-item {
+    margin: 5px;
+    width: 100px;
+    height: 25px;
+    
+}
+
+.day-menu-item {
+    margin: 5px 8px;
+    width: 55px;
+    height: 30px;
+}
+
+
+
+
+.footer {
+    margin: 10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.credit {
+    width: 50%;
+    background: #2E2E2E;
+    border-radius: 7px;
+
+    text-align: center;
+    font-family: Arima Madurai;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #D4D4D4;
+}
+
+
+

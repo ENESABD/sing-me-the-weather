@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Icon from './Icon';
 
-function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unit, weatherInfoForTheDay, setWeatherInfoForTheDay}) {
+function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unitSign, weatherInfoForTheDay, setWeatherInfoForTheDay}) {
 
     const [isLoading, setLoading] = useState(true);
     const [temp, setTemp] = useState('');
@@ -19,7 +19,7 @@ function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unit, weat
                 if (day === '0') {
                     if (!(isAlreadyCurrent())) {
                         setWeatherInfoForTheDay(allWeatherInfo.current);
-                        setTemp(allWeatherInfo.current.temp);
+                        setTemp(Math.round(allWeatherInfo.current.temp));
                         setWeatherDescription(allWeatherInfo.current.weather[0].description.toLowerCase()
                             .split(' ')
                             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -36,7 +36,7 @@ function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unit, weat
                     setLoading(false);
                 } else {
                     setWeatherInfoForTheDay(allWeatherInfo.daily[day]);
-                    setTemp(allWeatherInfo.daily[day].temp.day);
+                    setTemp(Math.round(allWeatherInfo.daily[day].temp.day));
                     setWeatherDescription(allWeatherInfo.daily[day].weather[0].description.toLowerCase()
                         .split(' ')
                         .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -60,15 +60,18 @@ function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unit, weat
 
 
     if (isLoading) {
-        <div>Loading...</div>
+        <>
+            {/*<label htmlFor="main-weather-loading">Loading...</label>*/}
+            <progress /*id="main-weather-loading"*/ className="main-weather-loading"></progress>
+        </>
     }
 
     return (
-        <div>
-            <div>{temp}</div>
-            <div>{weatherDescription}</div>
-            <Icon iconCode={iconCode} />
-        </div>
+        <dl className="main-weather-info">
+            <dt className="main-temperature">{temp}{unitSign}</dt>
+            <dd className="main-weather-icon"><Icon iconCode={iconCode}/></dd>
+            <dd className="main-weather-description">{weatherDescription}</dd>
+        </dl>
     )
 }
 
