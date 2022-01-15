@@ -16,6 +16,13 @@
     "nodemon": "^2.0.15",
     "web-vitals": "^1.1.2"
   },
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "15.6.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
