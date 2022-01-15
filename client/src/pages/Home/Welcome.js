@@ -2,7 +2,6 @@ import React from 'react'
 
 function Welcome({ setWelcomed }) {
 
-
     const onClickWelcome = () => {
         setWelcomed(true);
       }

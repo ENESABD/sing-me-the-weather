@@ -4,10 +4,9 @@ import Weather from './Weather';
 import Song from './Song';
 import Menu from './Menu';
 
-function Home({ setPlaceId }) {
+function Home({ setPhotoUrl }) {
 
 
-    
 
     const [hasWelcomed, setWelcomed] = useState(false);
 
@@ -16,17 +15,16 @@ function Home({ setPlaceId }) {
     const [day, setDay] = useState('0');
     const [itIsUnit, setItIsUnit] = useState(null);
 
-    
 
 
     return (
         <Fragment>
-            {!(hasWelcomed) ? <Welcome setWelcomed={setWelcomed} /> :
+            {!(hasWelcomed) ? <Welcome setWelcomed={setWelcomed}/> :
         
             <main className="home">
 
                 
-                <Weather setForCategory={setForCategory} unit={unit} day={day} itIsUnit={itIsUnit} setPlaceId={setPlaceId} />
+                <Weather setForCategory={setForCategory} unit={unit} day={day} itIsUnit={itIsUnit} setPhotoUrl={setPhotoUrl} />
 
                 <Song forCategory={forCategory} />
                 <Menu setUnit={setUnit} setDay={setDay} setItIsUnit={setItIsUnit} />

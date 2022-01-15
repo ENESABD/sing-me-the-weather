@@ -6,7 +6,7 @@ import ParsedDate from './ParsedDate';
 import NextHours from './NextHours';
 import OtherWeatherInfo from './OtherWeatherInfo';
 
-function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
+function Weather({ setForCategory, unit, day, itIsUnit, setPhotoUrl }) {
 
 
     const [weatherInfoForTheDay, setWeatherInfoForTheDay] = useState({});
@@ -22,7 +22,6 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
 
     const [unitSign, setUnitSign] = useState('');
 
-    const myApiKey = 'df06240ee5aea040d1e13720eac10a90';
 
 
     useEffect(() => {
@@ -34,8 +33,8 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
                 setLat(lat1);
                 setLon(lon1);
 
-                await axios.get //instead of using the api's unit parameter, conversion functions can be used to save api calls
-                (`https://api.openweathermap.org/data/2.5/onecall?lat=${lat1}&lon=${lon1}&units=${unit}&exclude=minutely&appid=${myApiKey}`)
+                //instead of using the api's unit parameter, conversion functions can be used to save api calls
+                await axios.get(`http://localhost:8000/weather/?lat=${lat1}&lon=${lon1}&units=${unit}`)
                     .then(res => {
                         setAllWeatherInfo(res.data);
                         setHoursWeather(res.data.hourly);
@@ -72,7 +71,7 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPlaceId }) {
 
             <header className="user-location-and-chosen-date">
                 <ParsedDate weatherInfoForTheDay={weatherInfoForTheDay} />
-                <Place lat={lat} lon={lon} setPlaceId={setPlaceId}/>
+                <Place lat={lat} lon={lon} setPhotoUrl={setPhotoUrl} />
             </header>          
         </section>
     )
