@@ -12,12 +12,12 @@ function Place({ lat, lon, setPhotoUrl }) {
     useEffect(()=> {
 
         const getAdressInfo = async () => {
-            await axios.get(`http://localhost:8000/place/?lat=${lat}&lon=${lon}`)
+            await axios.get(`https://sing-me-the-weather.herokuapp.com/place/?lat=${lat}&lon=${lon}`)
                 .then(res => {
                     setCity(res.data.city);
                     setCountry(res.data.country);
                     setCountryState(res.data.countryState);
-                    setPhotoUrl("http://localhost:8000/image.jpg");
+                    setPhotoUrl("https://sing-me-the-weather.herokuapp.com/image.jpg");
                 })
                 .catch(err => console.log(err))  
         }
