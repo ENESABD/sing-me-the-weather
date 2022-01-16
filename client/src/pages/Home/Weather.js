@@ -34,7 +34,7 @@ function Weather({ setForCategory, unit, day, itIsUnit, setPhotoUrl }) {
                 setLon(lon1);
 
                 //instead of using the api's unit parameter, conversion functions can be used to save api calls
-                await axios.get(`https://sing-me-the-weather.herokuapp.comw/weather/?lat=${lat1}&lon=${lon1}&units=${unit}`)
+                await axios.get(`https://sing-me-the-weather.herokuapp.com/weather/?lat=${lat1}&lon=${lon1}&units=${unit}`)
                     .then(res => {
                         setAllWeatherInfo(res.data);
                         setHoursWeather(res.data.hourly);
