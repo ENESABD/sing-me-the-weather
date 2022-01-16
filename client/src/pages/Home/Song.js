@@ -58,7 +58,6 @@ function Song({ forCategory }) {
         }
     
         let category = getCategory();
-        console.log(category);
 
         if (category) {
             let randomSongIndex = Math.floor(Math.random() * Math.floor(songs[category].length));
