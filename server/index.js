@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios')
 require('dotenv').config()
-
+console.log(process.env.REACT_APP_GOOGLE_API_KEY);
 const NodeGeocoder = require('node-geocoder');
 
 const geocode_options = {
