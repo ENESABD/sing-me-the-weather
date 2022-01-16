@@ -55,7 +55,6 @@ function MainWeather({ allWeatherInfo, day, setForCategory, itIsUnit, unitSign, 
             
         }
         getWeatherInfoForTheDay();
-        console.log(allWeatherInfo);
     },[day, setForCategory, allWeatherInfo, itIsUnit, isAlreadyCurrent, setWeatherInfoForTheDay])
 
 
